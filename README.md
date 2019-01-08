@@ -1,50 +1,27 @@
-﻿# 🌀ui-carousel 
+# UiCarousel2
 
-✨  Carousel component for angular 4 and 5
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
-## 💥 Features :
-- 👌 Supports touch events
-- ⚡️ Image lazy loading
-- 😈 No third party library
-- 😎 Easy to use API
-## Install
-``` npm install ui-carousel --save ```
+## Development server
 
-## Demo :
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## [Demo](https://bougarfaoui.github.io/ui-carousel/)
+## Code scaffolding
 
-## Example :
-```html
-    <ui-carousel [infinite]="true" [fade]="false" [speed]="200" >
-        <ui-carousel-item *ngFor="let item of items">
-            <img [ui-lazy-load]="item.img">
-        </ui-carousel-item>
-    </ui-carousel>
-```
-## API
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-### Inputs 
+## Build
 
-Inputs           | Type            | Description                                                  
----------------- | --------------- | -----------                                           
-`infinite`       | `boolean`       | Infinite carousel                     
-`arrows`         | `boolean`       | Show/hide Arrows                                                            
-`dots`           | `boolean`       | Show/hide Dots       
-`speed`          | `number`        | Speed (in milliseconds)       
-`fade`           | `bool`          | Enable fade mode                                                             
-`height`         | `string`        | Height of the carousel (in px or %)             
-`width`          | `string`        | Width of the carousel (in px or %)
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-### Directives : 
+## Running unit tests
 
-```[ui-lazy-load]``` : used to lazy load images in the carousel :
-```html
-  <ui-carousel-item>
-     <img [ui-lazy-load]="src">
-  </ui-carousel-item>
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Licence : 
+## Running end-to-end tests
 
-MIT
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
