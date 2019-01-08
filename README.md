@@ -7,7 +7,7 @@
 - 😈 No third party library
 - 😎 Easy to use API
 ## Install
-``` npm install ui-carousel --save ```
+``` npm install ngx-ui-carousel --save ```
 
 ## Example :
 ```html
@@ -18,8 +18,6 @@
     </ui-carousel>
 ```
 ## API
-
-### Inputs 
 
 Inputs           | Type            | Description                                                  
 ---------------- | --------------- | -----------                                           
@@ -34,8 +32,10 @@ Inputs           | Type            | Description
 ## Contribute
 
 To contribute you can either fork or make a pull request to this repository.
-After cloning, the code can be found in: `projects/ui-carousel/src/lib/*`
-When your done making changes you can build the library using `ng build ui-carousel`
+
+After cloning, the code can be found in: `projects/ui-carousel/src/lib/*`, run `npm install && npm start` to start developing!
+
+When your done making changes you can build the library using `npm build-lib`
 
 ## Credits
 
