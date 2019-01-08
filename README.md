@@ -1,27 +1,46 @@
-# UiCarousel2
+# 🌀ui-carousel 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+✨  Carousel component for angular 4 and 5
 
-## Development server
+## 💥 Features :
+- ⚡️ Image lazy loading
+- 😈 No third party library
+- 😎 Easy to use API
+## Install
+``` npm install ui-carousel --save ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Example :
+```html
+    <ui-carousel [infinite]="true" [fade]="false" [speed]="200" >
+        <ui-carousel-item *ngFor="let item of items">
+            <img [ui-lazy-load]="item.img">
+        </ui-carousel-item>
+    </ui-carousel>
+```
+## API
 
-## Code scaffolding
+### Inputs 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Inputs           | Type            | Description                                                  
+---------------- | --------------- | -----------                                           
+`infinite`       | `boolean`       | Infinite carousel                     
+`isArrowsVisible`| `boolean`       | Show/hide Arrows                                                            
+`isDotsVisible`  | `boolean`       | Show/hide Dots       
+`speed`          | `number`        | Speed (in milliseconds)       
+`fade`           | `bool`          | Enable fade mode                                                             
+`height`         | `string`        | Height of the carousel (in px or %)             
+`width`          | `string`        | Width of the carousel (in px or %)
 
-## Build
+## Contribute
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To contribute you can either fork or make a pull request to this repository.
+After cloning, the code can be found in: `projects/ui-carousel/src/lib/*`
+When your done making changes you can build the library using `ng build ui-carousel`
 
-## Running unit tests
+## Credits
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Credits to bougarfaoui (https://github.com/bougarfaoui/) for the original code. I reused it and modified it somewhat to my own liking.
 
-## Running end-to-end tests
+### Licence
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+MIT
