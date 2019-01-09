@@ -1,12 +1,15 @@
-import { Component, OnInit, ViewChild, ElementRef, QueryList, Renderer2, ChangeDetectorRef, ContentChild } from '@angular/core';
+import { Component, ViewChild, ElementRef, QueryList, Renderer2, ChangeDetectorRef, ContentChild, Input } from '@angular/core';
 import { UILazyloadDirective } from '../directives/ui-lazy-load.directive';
-
+import { UiCarouselColorConfig } from '../color-config.class';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'ui-carousel-item',
+  selector: 'ngx-ui-carousel-item',
   template: `
-    <div #carouselItem class="ui-carousel-item fade" tabindex="-1" style="outline: none">
+    <div #carouselItem
+        [ngStyle]="{'background-color': backgroundColor ? backgroundColor : colorConfig.itemBackgroundColor}"
+        class="ui-carousel-item fade" tabindex="-1"
+        style="outline: none">
       <ng-content></ng-content>
     </div>
   `,
@@ -39,7 +42,6 @@ import { UILazyloadDirective } from '../directives/ui-lazy-load.directive';
   .ui-carousel-item{
     height: 100%;
     width: 100%;
-    background: orange;
     position: absolute;
     overflow: hidden;
   }
@@ -63,10 +65,13 @@ export class UiCarouselItemComponent {
 
   @ContentChild(UILazyloadDirective) lazyLoadedImages: QueryList<UILazyloadDirective>;
 
+  @Input() public backgroundColor: string;
+
   public speed: number;
   public currentPosition = 0;
   public position = 0;
   public zIndex: number;
+  public colorConfig = new UiCarouselColorConfig();
 
   constructor(private renderer: Renderer2, private ref: ChangeDetectorRef) { }
 

@@ -1,10 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@angular/core';
+import { UiCarouselColorConfig } from '../color-config.class';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'dots',
   template: `
-    <div class="dot" *ngFor="let number of numbers" (click)="click(number)" [class.active]="activeDot === number"></div>
+    <div class="dot" [ngStyle]="{'background-color': colorConfig.dotsColor}"
+      *ngFor="let number of numbers"
+      (click)="click(number)"
+      [class.active]="activeDot === number">
+    </div>
   `,
   styles : [`
       :host{
@@ -38,18 +43,18 @@ import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@an
           width: 10px;
           border-radius: 5px;
           background: white;
-          opacity: .6;
+          opacity: .5;
           margin: 0 4px;
           display: inline-block;
       }
 
       .dot:hover{
-          opacity: .8;
+          opacity: .9;
           cursor: pointer;
       }
 
       .dot.active{
-          opacity: .8;
+          opacity: .9;
       }
   `]
 })
@@ -57,6 +62,7 @@ import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@an
 export class DotsComponent implements OnInit {
   @Input() public activeDot = 0;
   @Input() public dotsCount: number;
+  @Input() public colorConfig = new UiCarouselColorConfig();
 
   @HostBinding('class')
   @Input() position = 'left';

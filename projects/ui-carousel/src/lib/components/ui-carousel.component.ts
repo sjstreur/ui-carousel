@@ -1,9 +1,14 @@
-import { Component, OnInit, Output, EventEmitter, Input, ContentChildren, QueryList, ElementRef, HostListener } from '@angular/core';
+import {
+  Component, OnInit, Output, EventEmitter,
+  Input, ContentChildren, QueryList, ElementRef,
+  HostListener, AfterViewInit
+} from '@angular/core';
 import { UiCarouselItemComponent } from './ui-carousel-item.component';
+import { UiCarouselColorConfig } from '../color-config.class';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'ui-carousel',
+  selector: 'ngx-ui-carousel',
   template: `
     <div (mouseenter)="(autoPlay)?autoPlayFunction(false):null" (mouseleave)="(autoPlay)?autoPlayFunction(true):null">
       <ng-content></ng-content>
@@ -12,9 +17,10 @@ import { UiCarouselItemComponent } from './ui-carousel-item.component';
         [dotsCount]="items.length"
         position="middle"
         [activeDot]="currentItemIndex"
+        [colorConfig]="colorConfig"
         (onClick)="goTo($event)"></dots>
-      <arrow *ngIf="isArrowsVisible" dir="left" (onArrowClick)="prev()" [disabled]="false"></arrow>
-      <arrow *ngIf="isArrowsVisible" dir="right" (onArrowClick)="next()" [disabled]="false"></arrow>
+      <arrow *ngIf="isArrowsVisible" dir="left" (onArrowClick)="prev()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
+      <arrow *ngIf="isArrowsVisible" dir="right" (onArrowClick)="next()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
     </div>
   `,
   styles: [`
@@ -25,17 +31,17 @@ import { UiCarouselItemComponent } from './ui-carousel-item.component';
     }
   `],
 })
-export class UiCarouselComponent implements OnInit {
+export class UiCarouselComponent implements OnInit, AfterViewInit {
   @Input() height = '300px';
   @Input() width = '100%';
   @Input() speed: number;
   @Input() autoPlay = true;
   @Input() autoPlaySpeed: number;
-
   @Input() infinite = true;
   @Input() fade = false;
   @Input() isDotsVisible = true;
   @Input() isArrowsVisible = true;
+  @Input() colorConfig = new UiCarouselColorConfig();
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
 
@@ -59,7 +65,6 @@ export class UiCarouselComponent implements OnInit {
     }
   }
 
-  // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.el.nativeElement.style.height = this.height;
     this.el.nativeElement.style.width = this.width;
@@ -83,6 +88,11 @@ export class UiCarouselComponent implements OnInit {
         item.setzIndex(item.zIndex);
       });
     }
+    setTimeout(() => {
+      this.items.forEach(item => {
+        item.colorConfig = this.colorConfig;
+      });
+    }, 50);
   }
 
   next() {
@@ -274,7 +284,6 @@ export class UiCarouselComponent implements OnInit {
 
   rePosition() {
     const items = this.items.toArray();
-    console.log(items);
 
     if (this.items && this.items.length > 0) {
       this._width = this.items.first.el.nativeElement.offsetWidth;

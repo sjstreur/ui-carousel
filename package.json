@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-carousel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build ui-carousel"
+    "build-lib": "ng build ui-carousel",
+    "npm-pack": "cd dist/ui-carousel && npm pack",
+    "package": "npm run build-lib && npm run npm-pack",
+    "packversion": "npm run package && npm version patch"
   },
   "private": false,
   "dependencies": {
@@ -47,7 +50,6 @@
     "typescript": "~3.1.6",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
-    "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   }
 }
