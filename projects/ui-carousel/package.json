@@ -6,5 +6,6 @@
     "@angular/core": "^4.0.0"
   },
   "homepage": "https://github.com/sjstreur/ui-carousel#readme",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": ["carousel", "angular", "ngx", "ui", "ng", "customizable", "component"]
 }
