@@ -5,14 +5,11 @@ import { UiCarouselColorConfig } from '../color-config.class';
   // tslint:disable-next-line:component-selector
   selector: 'arrow',
   template: `
-
     <div #arrow class="arrow" (click)="onClick()"
       [ngClass]="{'left': dir === 'left', 'right': dir === 'right', 'disabled': disabled}">
       <style #shadow-styling [innerHTML]="styling">
       </style>
       </div>
-
-
   `,
   styles: [`
   .arrow {
@@ -29,7 +26,7 @@ import { UiCarouselColorConfig } from '../color-config.class';
   }
 
   .arrow.right {
-    right: 5px;
+    right: 15px;
     top: 50%;
 
     transform: scaleX(-1) translateY(-50%);
@@ -42,7 +39,7 @@ import { UiCarouselColorConfig } from '../color-config.class';
   }
 
   .arrow.left{
-    left: 5px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
     -moz-transform: translateY(-50%);

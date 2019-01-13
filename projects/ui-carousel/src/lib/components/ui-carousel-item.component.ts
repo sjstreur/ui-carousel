@@ -14,8 +14,8 @@ import { UiCarouselColorConfig } from '../color-config.class';
     </div>
   `,
   styles: [`
-  :host{
-    width: 100%;
+  :host {
+    display:block!important;
   }
 
   .ui-carousel-item{
@@ -40,7 +40,7 @@ import { UiCarouselColorConfig } from '../color-config.class';
   }
 
   .ui-carousel-item{
-    height: 100%;
+    // height: 100%;
     width: 100%;
     position: absolute;
     overflow: hidden;
