@@ -32,7 +32,7 @@ import { UiCarouselColorConfig } from '../color-config.class';
   `],
 })
 export class UiCarouselComponent implements OnInit, AfterViewInit {
-  @Input() height = '300px';
+  @Input() height: string;
   @Input() width = '100%';
   @Input() speed: number;
   @Input() autoPlay = true;
@@ -66,6 +66,25 @@ export class UiCarouselComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    if (!this.height) {
+      let highest = 0;
+      this.items.forEach(itemELement => {
+        if (itemELement.el.nativeElement.offsetHeight > highest) {
+          highest = itemELement.el.nativeElement.offsetHeight;
+        }
+      });
+
+      this.height = `${highest}px`;
+    } else {
+      this.items.forEach(itemELement => {
+        itemELement.el.nativeElement.style.overflowY = 'auto';
+      });
+    }
+
+    this.items.forEach(itemELement => {
+      itemELement.el.nativeElement.style.height = this.height;
+    });
+
     this.el.nativeElement.style.height = this.height;
     this.el.nativeElement.style.width = this.width;
     if (this.items && this.items.length > 0) {
