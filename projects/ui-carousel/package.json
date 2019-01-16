@@ -7,5 +7,13 @@
   },
   "homepage": "https://github.com/sjstreur/ui-carousel#readme",
   "license": "MIT",
-  "keywords": ["carousel", "angular", "ngx", "ui", "ng", "customizable", "component"]
+  "keywords": [
+    "carousel",
+    "angular",
+    "ngx",
+    "ui",
+    "ng",
+    "customizable",
+    "component"
+  ]
 }

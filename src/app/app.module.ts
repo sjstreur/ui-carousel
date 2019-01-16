@@ -1,8 +1,9 @@
-import { UiCarouselModule } from '../../projects/ui-carousel/src/lib/ui-carousel.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { UiCarouselModule } from 'dist/ui-carousel';
 
 @NgModule({
   declarations: [
