@@ -1,4 +1,4 @@
-/*
+ /*
  * Public API Surface of ui-carousel
  */
 
