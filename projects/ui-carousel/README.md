@@ -22,18 +22,24 @@
 ```
 ## API
 
-Inputs           | Type                           | Description                                                  
----------------- | ------------------------------ | -----------                                           
-`infinite`       | `boolean`                      | Infinite carousel                     
-`isArrowsVisible`| `boolean`                      | Show/hide Arrows                                                            
-`isDotsVisible`  | `boolean`                      | Show/hide Dots       
-`speed`          | `number`                       | Transition Speed (ms)       
-`fade`           | `bool`                         | Enable fade mode                                                             
-`height`         | `string`                       | Height of the carousel (in px or %)             
-`width`          | `string`                       | Width of the carousel (in px or %)
-`autoPlay`       | `bool`                         | Enable autoscroll of items                                                             
-`autoPlaySpeed`  | `number`                       | Timeout (ms) of automatic scrolling     
-`colorConfig`    | `UiCarouselColorConfig`        | Colors config for all components within the carousel (dots, items, arrows). Defaults have been set.
+Inputs                 | Type                           | Description                                                  
+-----------------------| ------------------------------ | -----------                                           
+`infinite`             | `boolean`                      | Infinite carousel                     
+`isArrowsVisible`      | `boolean`                      | Show/hide Arrows                                                            
+`isDotsVisible`        | `boolean`                      | Show/hide Dots       
+`speed`                | `number`                       | Transition Speed (ms)       
+`fade`                 | `bool`                         | Enable fade mode                                                             
+`height`               | `string`                       | Height of the carousel (in px or %)             
+`width`                | `string`                       | Width of the carousel (in px or %)
+`autoPlay`             | `bool`                         | Enable autoscroll of items                                                             
+`autoPlaySpeed`        | `number`                       | Timeout (ms) of automatic scrolling     
+`colorConfig`          | `UiCarouselColorConfig`        | Colors config for all components within the carousel (dots, items, arrows, print button). Defaults have been set.
+`colorConfig`          | `UiCarouselColorConfig`        | Colors config for all components within the carousel (dots, items, arrows, print button). Defaults have been set.
+`isPrintButtonVisible` | `bool`                         | Show/hide print button (default: false)
+
+Ouputs           | Type                           | Description                                                  
+---------------- | ------------------------------ | -----------  
+`printRequest`   | `NativeElement`                | Returns the currently shown carouselitem as a NativeElement
 
 ## Contribute
 
