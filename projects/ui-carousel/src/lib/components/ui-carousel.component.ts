@@ -1,7 +1,7 @@
 import {
   Component, OnInit, Output, EventEmitter,
   Input, ContentChildren, QueryList, ElementRef,
-  HostListener, AfterViewInit
+  HostListener, AfterViewInit, Renderer2
 } from '@angular/core';
 import { UiCarouselItemComponent } from './ui-carousel-item.component';
 import { UiCarouselColorConfig } from '../color-config.class';
@@ -21,6 +21,11 @@ import { UiCarouselColorConfig } from '../color-config.class';
         (onClick)="goTo($event)"></dots>
       <arrow *ngIf="isArrowsVisible" dir="left" (onArrowClick)="prev()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
       <arrow *ngIf="isArrowsVisible" dir="right" (onArrowClick)="next()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
+      <print-button
+        *ngIf="isPrintButtonVisible"
+        (onButtonClick)="onPrintClick()"
+        [colorConfig]="colorConfig"
+        [disabled]="false"></print-button>
     </div>
   `,
   styles: [`
@@ -41,9 +46,11 @@ export class UiCarouselComponent implements OnInit, AfterViewInit {
   @Input() fade = false;
   @Input() isDotsVisible = true;
   @Input() isArrowsVisible = true;
+  @Input() isPrintButtonVisible = false;
   @Input() colorConfig = new UiCarouselColorConfig();
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() printRequest: EventEmitter<any> = new EventEmitter<any>();
 
   @ContentChildren(UiCarouselItemComponent) items: QueryList<UiCarouselItemComponent>;
 
@@ -55,7 +62,7 @@ export class UiCarouselComponent implements OnInit, AfterViewInit {
   private lastItemIndex: number; // ..
   private isSliding: boolean;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private renderer2: Renderer2) { }
 
   ngOnInit() {
     this.speed = this.speed || 500;
@@ -112,6 +119,11 @@ export class UiCarouselComponent implements OnInit, AfterViewInit {
         item.colorConfig = this.colorConfig;
       });
     }, 50);
+  }
+
+  onPrintClick() {
+    const currentEl = this.items.toArray()[this.currentItemIndex].el;
+    this.printRequest.emit(currentEl);
   }
 
   next() {

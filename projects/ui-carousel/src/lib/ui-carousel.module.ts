@@ -6,6 +6,7 @@ import { UILazyloadDirective } from './directives/ui-lazy-load.directive';
 import { UiCarouselItemComponent } from './components/ui-carousel-item.component';
 import { UiCarouselComponent } from './components/ui-carousel.component';
 import { CommonModule } from '@angular/common';
+import { PrintButtonComponent } from './components/print.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     ArrowComponent,
     UiCarouselComponent,
     UiCarouselItemComponent,
+    PrintButtonComponent
   ],
   imports: [
     CommonModule,
