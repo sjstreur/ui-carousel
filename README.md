@@ -9,6 +9,9 @@
 ## Install
 ``` npm install ngx-ui-carousel ```
 
+For angular version < 7 use 1.3.4
+For angular version 8 use latest
+
 ## Example :
 ```html
   <ngx-ui-carousel [infinite]="true" [fade]="false" [speed]="200">

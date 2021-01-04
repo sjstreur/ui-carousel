@@ -2,8 +2,8 @@
   "name": "ngx-ui-carousel",
   "version": "1.1.6",
   "peerDependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/core": "^4.0.0"
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0"
   },
   "homepage": "https://github.com/sjstreur/ui-carousel#readme",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "component"
   ],
   "dependencies": {
-    "@angular/cli": "^7.3.9",
-    "@angular/common": "^7.2.15"
+    "@angular/cli": "^8.0.0",
+    "@angular/common": "^8.0.0"
   }
 }
