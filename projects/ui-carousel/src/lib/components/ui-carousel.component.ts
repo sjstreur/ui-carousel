@@ -13,14 +13,14 @@ import { UiCarouselColorConfig } from '../color-config.class';
     <div (mouseenter)="(autoPlay)?autoPlayFunction(false):null" (mouseleave)="(autoPlay)?autoPlayFunction(true):null">
       <ng-content></ng-content>
       <dots
-        *ngIf="isDotsVisible"
+        *ngIf="isDotsVisible && items.length > 1"
         [dotsCount]="items.length"
         position="middle"
         [activeDot]="currentItemIndex"
         [colorConfig]="colorConfig"
         (onClick)="goTo($event)"></dots>
-      <arrow *ngIf="isArrowsVisible" dir="left" (onArrowClick)="prev()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
-      <arrow *ngIf="isArrowsVisible" dir="right" (onArrowClick)="next()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
+      <arrow *ngIf="isArrowsVisible && items.length > 1" dir="left" (onArrowClick)="prev()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
+      <arrow *ngIf="isArrowsVisible && items.length > 1" dir="right" (onArrowClick)="next()" [disabled]="false" [colorConfig]="colorConfig"></arrow>
       <print-button
         *ngIf="isPrintButtonVisible"
         (onButtonClick)="onPrintClick()"

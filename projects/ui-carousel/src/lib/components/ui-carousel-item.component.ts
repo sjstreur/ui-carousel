@@ -61,9 +61,9 @@ import { UiCarouselColorConfig } from '../color-config.class';
   `]
 })
 export class UiCarouselItemComponent {
-  @ViewChild('carouselItem') public el: ElementRef;
+  @ViewChild('carouselItem', { static: false }) public el: ElementRef;
 
-  @ContentChild(UILazyloadDirective) lazyLoadedImages: QueryList<UILazyloadDirective>;
+  @ContentChild(UILazyloadDirective, { static: false }) lazyLoadedImages: QueryList<UILazyloadDirective>;
 
   @Input() public backgroundColor: string;
 
@@ -118,7 +118,7 @@ export class UiCarouselItemComponent {
   }
 
   public fadeOut(duration: number) {
-    return new Promise(resolve => {
+    return new Promise<void>(resolve => {
       this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
       setTimeout(() => {
         this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
