@@ -61,9 +61,9 @@ import { UiCarouselColorConfig } from '../color-config.class';
   `]
 })
 export class UiCarouselItemComponent {
-  @ViewChild('carouselItem', { static: false }) public el: ElementRef;
+  @ViewChild('carouselItem') public el: ElementRef;
 
-  @ContentChild(UILazyloadDirective, { static: false }) lazyLoadedImages: QueryList<UILazyloadDirective>;
+  @ContentChild(UILazyloadDirective) lazyLoadedImages: QueryList<UILazyloadDirective>;
 
   @Input() public backgroundColor: string;
 
