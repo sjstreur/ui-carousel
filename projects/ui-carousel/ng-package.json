@@ -3,10 +3,5 @@
   "dest": "../../dist/ui-carousel",
   "lib": {
     "entryFile": "src/public_api.ts"
-  },
-  "whitelistedNonPeerDependencies": [
-    "tslib",
-    "@angular/cli",
-    "@angular/common"
-  ]
+  }
 }
