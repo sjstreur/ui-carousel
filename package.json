@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build ui-carousel",
+    "build-lib": "ng build ui-carousel --prod",
     "watch-lib": "ng build ui-carousel --watch",
     "npm-pack": "cd dist/ui-carousel && npm pack",
     "package": "npm run build-lib && npm run npm-pack",
